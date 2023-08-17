@@ -1,5 +1,17 @@
 {
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "name": "own-practice",
+  "version": "1.0.0",
+  "description": "Complete Node.js guide as I'm begginer in this",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "start-server" : "node index.js"
+  },
+  "author": "Mahima Gupta",
+  "license": "ISC"
 }
