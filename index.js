@@ -43,6 +43,7 @@
 
 
 //const http = require('http');
+// const server = http.createServer(app);
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -51,21 +52,17 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/add-product',(req, res, next) => {   // due to top to bottom approach we get this 1st
-    res.send('<form action="/product" method="POST"><input type="text" name ="title"><button type="submit">Add Item</button></form>');
+app.use('/add-product', (req, res, next) => {
+  res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
 });
 
-app.use('/',(req, res, next) => {         // '/' every route by default start with it
+app.post('/product', (req, res, next) => {
     console.log(req.body);
     res.redirect('/');
 });
 
-app.use('/',(req, res, next) => {
-    res.send('<h1>Hello from Express!</h1>');
+app.use('/', (req, res, next) => {
+  res.send('<h1>Hello from Express!</h1>');
 });
 
-// const server = http.createServer(app);
-
 app.listen(3000);
-
-
